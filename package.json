@@ -1,0 +1,74 @@
+{
+  "name": "dsh-better-keymap",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness shortcuts on your terms: a later assignment overrides an earlier one, displacements are reported, and even the composer's send/newline/complementary keys are rebindable.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smallcarve/dsh-better-keymap.git"
+  },
+  "engines": {
+    "node": ">=22.19"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "keymap",
+    "keybinding",
+    "shortcuts",
+    "keyboard"
+  ],
+  "author": "Smallcarve",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "./cordis.patch.yml"
+      ]
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "prepublishOnly": "node scripts/build.mjs && node scripts/run-tests.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*"
+  },
+  "devDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "1.0.0-beta.45",
+    "jsdom": "^25.0.1",
+    "lightningcss": "1.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rolldown": "1.0.0-beta.45"
+  }
+}

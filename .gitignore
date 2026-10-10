@@ -1,0 +1,33 @@
+# `node_modules/` is reproducible from the lockfile.
+node_modules/
+
+# pnpm's store, if a future `.npmrc` ever pins one inside the project.
+.pnpm-store/
+
+# Build output is committed on purpose: `lib/` is what the host loads, so a clone
+# or a `github:` install works without a build step. Regenerate it with
+# `pnpm run build` and commit the result alongside the source that produced it.
+# `.gitattributes` marks it as generated so review tools fold it away.
+
+# Maintainer-only release notes: they document this machine's workflow (registry
+# mirror, remote layout, npm token handling) and are not part of the published
+# plugin. Kept locally on purpose. `git add -f <file>` still stages them.
+PUBLISHING.md
+RELEASING.md
+
+# Logs and caches.
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.eslintcache
+*.tsbuildinfo
+
+# Editors.
+.vscode/
+.idea/
+*.swp
+
+# Operating systems.
+.DS_Store
+Thumbs.db
+desktop.ini

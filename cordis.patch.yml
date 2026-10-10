@@ -1,0 +1,13 @@
+# The dsh-better-keymap bundle patch.
+#
+# Installed as a normal profile bundle, this patch adds exactly one row: the
+# plugin's client half. The Node half is a no-op that exists only because the
+# Loader imports every row's package entry, and the browser half registers
+# everything the plugin contributes.
+#
+# Disable or remove the row from the profile's own cordis.patch.yml, or through
+# the Plugins page, to return the window to the product's own shortcut
+# reference. Nothing this plugin stored is touched by disabling it.
+- insert:
+    - id: better-keymap
+      name: 'dsh-better-keymap'
